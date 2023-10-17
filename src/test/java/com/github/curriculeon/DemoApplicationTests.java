@@ -89,6 +89,13 @@ public class DemoApplicationTests {
             driver.findElement(By.cssSelector("input[id*='newsletter']")).click();
             driver.findElement(By.cssSelector("input[id*='optin']")).click();
 
+            // Find first name field under Address Information, click it, and set to a variable
+            WebElement addressFirstName = driver.findElement(By.cssSelector("input[data-qa*='first_name']"));
+
+            // Generate random name and pass it to first name field
+            String testAddressFirstName = RandomStringUtils.randomAlphabetic(8);
+            addressFirstName.sendKeys(testAddressFirstName);
+
 
 //            Thread.sleep(2000);
 //
