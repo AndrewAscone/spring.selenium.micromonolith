@@ -86,7 +86,8 @@ public class DemoApplicationTests {
             signupBirthdateYear.sendKeys("1989");
 
             // Click checkboxes for newsletter/offers
-
+            driver.findElement(By.cssSelector("input[id*='newsletter']")).click();
+            driver.findElement(By.cssSelector("input[id*='optin']")).click();
 
 
 //            Thread.sleep(2000);
