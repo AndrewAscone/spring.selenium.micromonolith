@@ -37,20 +37,16 @@ public class DemoApplicationTests {
             String expected2 = "https://automationexercise.com/login";
             Assert.assertEquals(expected2, actual_url2);
 
-            // Find the name field for signup and click into it
+            // Find the name field for signup, click into it, and assign it to a variable
             driver.findElement(By.cssSelector("input[data-qa*='signup-name']")).click();
-
-            // Set the name field for signup to a variable
             WebElement signupName = driver.findElement(By.cssSelector("input[data-qa*='signup-name']"));
 
             // Generate a random name and pass it into the name field
             String testName = RandomStringUtils.randomAlphabetic(10);
             signupName.sendKeys(testName);
 
-            // Find the email address field for signup and click into it
+            // Find the email address field for signup, click into it, and assign it to a variable
             driver.findElement(By.cssSelector("input[data-qa*='signup-email']")).click();
-
-            // Set the email address field for signup to a variable
             WebElement signupEmail = driver.findElement(By.cssSelector("input[data-qa*='signup-email']"));
 
             // Generate a random email address and pass it into the email field
@@ -64,6 +60,33 @@ public class DemoApplicationTests {
             String actual_url3 = driver.getCurrentUrl();
             String expected3 = "https://automationexercise.com/signup";
             Assert.assertEquals(expected3, actual_url3);
+
+            // Click radio button under "Title" for gender
+            driver.findElement(By.cssSelector("input[id*='id_gender1']")).click();
+
+            // Find the password field, click into it, and assign it to a variable
+            driver.findElement(By.cssSelector("input[id*='password']")).click();
+            WebElement signupPass = driver.findElement(By.cssSelector("input[id*='password']"));
+
+            // Generate random string and pass it to the password field
+            String testSignupPass = RandomStringUtils.randomAlphanumeric(10);
+            signupPass.sendKeys(testSignupPass);
+
+            // Find date of birth select menus and interact with them
+            driver.findElement(By.cssSelector("select[id*='days']")).click();
+            WebElement signupBirthdateDay = driver.findElement(By.cssSelector("select[id*='days']"));
+            signupBirthdateDay.sendKeys("5");
+
+            driver.findElement(By.cssSelector("select[id*='months']")).click();
+            WebElement signupBirthdateMonth = driver.findElement(By.cssSelector("select[id*='months']"));
+            signupBirthdateMonth.sendKeys("November");
+
+            driver.findElement(By.cssSelector("select[id*='years']")).click();
+            WebElement signupBirthdateYear = driver.findElement(By.cssSelector("select[id*='years']"));
+            signupBirthdateYear.sendKeys("1989");
+
+            // Click checkboxes for newsletter/offers
+
 
 
 //            Thread.sleep(2000);
