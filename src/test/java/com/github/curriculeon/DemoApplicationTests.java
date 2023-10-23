@@ -9,6 +9,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.util.Random;
+
 public class DemoApplicationTests {
 
     @Test
@@ -89,12 +91,46 @@ public class DemoApplicationTests {
             driver.findElement(By.cssSelector("input[id*='newsletter']")).click();
             driver.findElement(By.cssSelector("input[id*='optin']")).click();
 
-            // Find first name field under Address Information, click it, and set to a variable
+            // Find first name field under Address Information and set to a variable
             WebElement addressFirstName = driver.findElement(By.cssSelector("input[data-qa*='first_name']"));
 
             // Generate random name and pass it to first name field
             String testAddressFirstName = RandomStringUtils.randomAlphabetic(8);
             addressFirstName.sendKeys(testAddressFirstName);
+
+            // Find last name field under Address Information and set to a variable
+            WebElement addressLastName = driver.findElement(By.cssSelector("input[data-qa*='last_name']"));
+
+            // Generate random name and pass it to last name field
+            String testAddressLastName = RandomStringUtils.randomAlphabetic(8);
+            addressLastName.sendKeys(testAddressLastName);
+
+            // Find company field under Address Information and set to a variable
+            WebElement addressCompanyName = driver.findElement(By.cssSelector("input[data-qa*='company']"));
+
+            // Generate random text and pass it to company field
+            String testCompanyName = RandomStringUtils.randomAlphanumeric(12);
+            addressCompanyName.sendKeys(testCompanyName);
+
+            // Find first address line under Address Information, set to variable
+            WebElement addressFirstAddressLine = driver.findElement(By.cssSelector("input[data-qa*='address']"));
+
+            // Generate random text styled as an address, pass to first address line
+            String testAddressFirstAddressLine = RandomStringUtils.randomNumeric(3) + " " +
+                                        RandomStringUtils.randomAlphabetic(10) + " Street";
+            addressFirstAddressLine.sendKeys(testAddressFirstAddressLine);
+
+            // Find second address line under Address Information, set to variable
+            WebElement addressSecondAddressLine = driver.findElement(By.cssSelector("input[data-qa*='address2']"));
+
+            // Generate random text styled as an address, pass to second address line
+            String testAddressSecondAddressLine = "P.O. Box " + RandomStringUtils.randomNumeric(3)
+                                                    + ", " + testCompanyName;
+            addressSecondAddressLine.sendKeys(testAddressSecondAddressLine);
+
+            // Find country selector under Address Information, set it to United States
+            WebElement addressCountry = driver.findElement(By.cssSelector("select[data-qa*='country']"));
+            addressCountry.sendKeys("United States");
 
 
 //            Thread.sleep(2000);
