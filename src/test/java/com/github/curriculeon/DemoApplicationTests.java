@@ -132,6 +132,35 @@ public class DemoApplicationTests {
             WebElement addressCountry = driver.findElement(By.cssSelector("select[data-qa*='country']"));
             addressCountry.sendKeys("United States");
 
+            // Find state field under Address Information, set to variable
+            WebElement addressState = driver.findElement(By.cssSelector("input[data-qa*='state']"));
+
+            // Generate random text and pass it to state field
+            String testAddressState = RandomStringUtils.randomAlphabetic(6);
+            addressState.sendKeys(testAddressState);
+
+            // Find city field under Address Information, set to variable
+            WebElement addressCity = driver.findElement(By.cssSelector("input[data-qa*='city']"));
+
+            // Generate random text and pass it to the city field
+            String testAddressCity = RandomStringUtils.randomAlphabetic(10);
+            addressCity.sendKeys(testAddressCity);
+
+            // Find zipcode field under Address Information, set to variable
+            WebElement addressZipcode = driver.findElement(By.cssSelector("input[data-qa*='zipcode']"));
+
+            // Generate random numbers styled as 5 number zipcode, pass to zipcode field
+            String testAddressZipcode = RandomStringUtils.randomNumeric(5);
+            addressZipcode.sendKeys(testAddressZipcode);
+
+            // Find mobile number field under Address Information, set to variable
+            WebElement addressMobileNumber = driver.findElement(By.cssSelector("input[data-qa*='mobile_number']"));
+
+            //Generate random numbers styled as phone number, pass to mobile number field
+            String testAddressMobileNumber = "(" + RandomStringUtils.randomNumeric(3) + ") " +
+                    RandomStringUtils.randomNumeric(3) + "-" + RandomStringUtils.randomNumeric(4);
+            addressMobileNumber.sendKeys(testAddressMobileNumber);
+
 
 //            Thread.sleep(2000);
 //
