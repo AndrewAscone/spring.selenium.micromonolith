@@ -166,11 +166,32 @@ public class DemoApplicationTests {
             WebElement createAccountButton = driver.findElement(By.cssSelector("button[data-qa*='create-account']"));
             createAccountButton.sendKeys(Keys.ENTER);
 
-            // Test for navigation to account created page
-//            String actual_url4 = driver.getCurrentUrl();
-//            String expected4 = "https://automationexercise.com/account_created";
-//            Assert.assertEquals(expected4, actual_url4);
+            Thread.sleep(2000);
 
+            // Test for navigation to account created page
+            String actual_url4 = driver.getCurrentUrl();
+            String expected4 = "https://automationexercise.com/account_created";
+            Assert.assertEquals(expected4, actual_url4);
+
+            // Find and click continue button on account created page
+            driver.findElement(By.cssSelector("a[data-qa*='continue-button']")).click();
+
+//            Thread.sleep(1000);
+//
+//            // Test for navigation to ad popup before reaching home page
+//            String actual_url5 = driver.getCurrentUrl();
+//            String expected5 = "https://automationexercise.com/account_created#google_vignette";
+//            Assert.assertEquals(expected5, actual_url5);
+//
+//            // Find and click the close button on the ad popup
+//            driver.findElement(By.cssSelector("div[id*='dismiss-button']")).click();
+
+            Thread.sleep(2000);
+
+            // Test for navigation back to home page
+            String actual_url6 = driver.getCurrentUrl();
+            String expected6 = "https://automationexercise.com/";
+            Assert.assertEquals(expected6, actual_url6);
 
 //            Thread.sleep(2000);
 //
