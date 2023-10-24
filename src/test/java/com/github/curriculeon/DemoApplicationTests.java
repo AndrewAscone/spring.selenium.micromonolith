@@ -5,6 +5,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -160,6 +161,15 @@ public class DemoApplicationTests {
             String testAddressMobileNumber = "(" + RandomStringUtils.randomNumeric(3) + ") " +
                     RandomStringUtils.randomNumeric(3) + "-" + RandomStringUtils.randomNumeric(4);
             addressMobileNumber.sendKeys(testAddressMobileNumber);
+
+            // Find and click on the Create Account button
+            WebElement createAccountButton = driver.findElement(By.cssSelector("button[data-qa*='create-account']"));
+            createAccountButton.sendKeys(Keys.ENTER);
+
+            // Test for navigation to account created page
+//            String actual_url4 = driver.getCurrentUrl();
+//            String expected4 = "https://automationexercise.com/account_created";
+//            Assert.assertEquals(expected4, actual_url4);
 
 
 //            Thread.sleep(2000);
