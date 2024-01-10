@@ -16,7 +16,7 @@ public class DemoApplicationTests {
 
     @Test
     public void test() {
-        // Use WebDriverManager to manage ChromeDriver
+        // Use WebDriverManager to manage FireFoxDriver
         WebDriverManager.firefoxdriver().setup();
 
         // Initialize the WebDriver
